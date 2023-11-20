@@ -1,0 +1,97 @@
+.register{
+    display:flex;
+    flex-wrap: wrap;
+    height:350px;
+    padding:10px;
+    margin-top: 10px;
+    margin-bottom: 300px;
+
+}
+
+
+.areaRegister{
+    max-width:760px;
+    width:100%;
+    background-color:white;
+    padding: 25px 30px;
+    border-radius: 5px;
+     border-right:1px solid rgba(0,0,0,.3) ;
+     border-left:1px solid rgba(0,0,0,.3) ;
+     border-top:1px solid rgba(0,0,0,.2) ;
+    border-bottom:1px solid rgba(0,0,0,.2) ;
+    margin-bottom: 400px;
+}
+.areaRegister form .users-details{
+    justify-content:space-between;
+    margin: 20px 0 12px 0;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.input-box{
+    margin-bottom: 13px;
+    width: calc(100% / 2 - 20px);
+}
+
+.input-box .detail{
+    margin-bottom:5px;
+    display:block;
+    font-weight:550;
+    font-size:11pt;
+    color: rgba(0,0,0,0.5);
+}
+
+.input-box input{
+    height:40px;
+    width:100%;
+    outline:none;
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left:15px;
+    font-size:12pt;
+    
+}
+.input-box input:focus,
+.input-box input:valid{
+    border-bottom-width:2px;
+    transition: all 0.3s ease;
+}
+.campSex{
+    color: rgba(0,0,0,0.5);
+}
+
+.button-register input{
+    margin-top: 15px;
+    justify-content:center;
+    height:100%;
+    width: 20%;
+    border-radius: 5px;
+    outline: none;
+    color:#fff;
+    background: rgb(0, 81, 255);
+    padding:5px;
+    border:none; 
+      margin-bottom:5px;
+      cursor:pointer;
+}
+
+.button-register input:hover{
+    background: rgb(46, 46, 46);
+    color: #fff;
+    /* border: 3px solid rgb(0, 81, 255); */ 
+    transition:0.3s ease;
+}
+
+select{
+    border-radius: 5px;
+    border:1px solid #ccc;
+    padding-left:15px;
+    font-size:12pt;
+
+}
+select:focus,
+select:valid{
+    transition: all 0.3s ease;
+
+}

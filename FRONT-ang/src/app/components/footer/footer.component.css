@@ -1,0 +1,16 @@
+footer{
+   background:rgb(0, 81, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+footer h3{
+    margin-bottom: 1.2em;
+    color: #fff;
+}
+footer span{
+    font-weight: bold;
+    color: #fff;
+}
