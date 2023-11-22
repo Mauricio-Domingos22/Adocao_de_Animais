@@ -11,3 +11,8 @@
 .nav-link:hover{
     color: rgb(46, 46, 46) !important;
 }
+.form-control{
+    background-color: #fff !important;
+    color: rgb(26, 26, 26)!important;
+    border: none;
+}

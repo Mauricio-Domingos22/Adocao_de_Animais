@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg  bg-primary" data-bs-theme="dark">
     <div class="container">
-      <a class="navbar-brand  me-4" href="#">
-        escola
+      <a class="navbar-brand  me-4" [routerLink]="['/']">
+       <img src="../../../assets/logo_animlas.png" width="100" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,11 +14,11 @@
           <li class="nav-item">
             <a class="nav-link me-4" [routerLink]="['/about']" routerLinkActive="active">about</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link me-4" [routerLink]="['/register']" routerLinkActive="active">Cadastrar Aluno </a>
-          </li>
           <li class="nav-item me-4">
-            <a class="nav-link" [routerLink]="['/consul']" routerLinkActive="active">Consultar Aluno</a>
+            <a class="nav-link" [routerLink]="['/consul']" routerLinkActive="active">Procurar Animal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link me-4" [routerLink]="['/register']" routerLinkActive="active">Cadastrar-se</a>
           </li>
           <li class="nav-item">
             <a class="nav-link me-4" [routerLink]="['/login']" routerLinkActive="active">login</a>
@@ -26,6 +26,9 @@
           
         </ul>
       </div>
+      <fieldset>
+        <input class="form-control me-2" type="search" placeholder="Pesquise por raça ou tipo de animal" aria-label="Search">
+      </fieldset>
     </div>
   </nav>
   
