@@ -7,6 +7,7 @@ class CorSchema extends Schema {
   up () {
     this.create('cors', (table) => {
       table.increments()
+      table.string('descricao',100).notNullable()
       table.timestamps()
     })
   }
