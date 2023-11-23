@@ -1,5 +1,12 @@
 'use strict'
 
+const AdotanteController = require('../app/Controllers/Http/AdotanteController')
+const AuthController = require('../app/Controllers/Http/AuthController')
+const EstadoController = require('../app/Controllers/Http/EstadoController')
+const GeneroController = require('../app/Controllers/Http/GeneroController')
+const RacaController = require('../app/Controllers/Http/RacaController')
+const TipoAnimalController = require('../app/Controllers/Http/TipoAnimalController')
+
 /*
 |--------------------------------------------------------------------------
 | Routes
@@ -16,6 +23,10 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
+Route.post('/genero', 'GeneroController.create')
+Route.post('/estado', 'EstadoController.create')
+Route.post('/register', 'AuthController.register')
+Route.post('/authenticate', 'AuthController.authenticate')
+Route.post('/ReAdotante', 'AdotanteController.create')
+Route.post('/tipo', 'TipoAnimalController.create')
+Route.post('/raca', 'RacaController.create')
