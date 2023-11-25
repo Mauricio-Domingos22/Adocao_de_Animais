@@ -6,6 +6,7 @@ const CorController = require('../app/Controllers/Http/CorController')
 const EstadoController = require('../app/Controllers/Http/EstadoController')
 const GeneroController = require('../app/Controllers/Http/GeneroController')
 const RacaController = require('../app/Controllers/Http/RacaController')
+const SexoController = require('../app/Controllers/Http/SexoController')
 const TipoAnimalController = require('../app/Controllers/Http/TipoAnimalController')
 
 /*
@@ -26,10 +27,10 @@ const Route = use('Route')
 
 Route.post('/genero', 'GeneroController.create')
 Route.post('/estado', 'EstadoController.create')
-Route.post('/register', 'AuthController.register')
-Route.post('/authenticate', 'AuthController.authenticate')
-Route.post('/ReAdotante', 'AdotanteController.create')
+Route.post('/register', 'AdotanteController.registerAdotante')
+Route.post('/authenticate', 'AdotanteController.authenticate')
 Route.post('/tipo', 'TipoAnimalController.create')
 Route.post('/raca', 'RacaController.create')
 Route.post('/cor', 'CorController.create')
+Route.post('/sexo', 'SexoController.create')
 

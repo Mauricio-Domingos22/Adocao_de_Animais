@@ -61,7 +61,7 @@
     color: rgba(0,0,0,0.5);
 }
 
-.button-register input{
+.button-register button{
     margin-top: 15px;
     justify-content:center;
     height:100%;
@@ -76,7 +76,7 @@
       cursor:pointer;
 }
 
-.button-register input:hover{
+.button-register button:hover{
     background: rgb(0, 69, 219);
     color: #fff;
     transition:0.3s ease;

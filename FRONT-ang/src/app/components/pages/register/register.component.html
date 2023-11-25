@@ -1,34 +1,34 @@
 <section class="register">
     <div class="container areaRegister">
-        <form action="#" method="post">
+        <form action="#">
             <div class="users-details ">
                 <div class="input-box">
                     <label class="detail">Nome Completo</label>
-                    <input type="text"  id="input-usar"placeholder="Digite o seu nome" required />
+                    <input type="text" [(ngModel)]="adotante.nome" id="input-usar"placeholder="Digite o seu nome" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Data de nascimento</label>
-                    <input type="date"  id="input-usar" required />
+                    <input type="date" [(ngModel)]="adotante.data_nascimento"  id="input-usar" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Telefone</label>
-                    <input type="text"  id="input-usar"placeholder="Digite o seu número" required />
+                    <input type="text" [(ngModel)]="adotante.telefone"  id="input-usar"placeholder="Digite o seu número" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Morada</label>
-                    <input type="text"  id="input-usar"placeholder="Digite a sua morada" required />
+                    <input type="text" [(ngModel)]="adotante.morada"  id="input-usar"placeholder="Digite a sua morada" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Posição</label>
                     <select name="numero" id="numero">
-                        <option value="1">Empregado em uma instituição</option>
-                        <option value="2">Empresário</option>
-                        <option value="3">Desempregado</option>
+                        <option [(ngModel)]="adotante.id_estad" value="1">Empregado em uma instituição</option>
+                        <option [(ngModel)]="adotante.id_estad" value="2">Empresário</option>
+                        <option [(ngModel)]="adotante.id_estad" value="3">Desempregado</option>
                     </select>
                 </div>
                 <div class="input-box">
                     <label class="detail">Fale um pouco acerca de ti</label>
-                    <textarea name="" id="" cols="42" rows="2"></textarea>
+                    <textarea name="" [(ngModel)]="adotante.descricao" id="" cols="42" rows="2"></textarea>
                 </div>
                 <div class="input-box">
                     <label class="detail">Email</label>
@@ -46,18 +46,19 @@
             </div>
 
             <div class="campSex form-check">
-                <input type="radio" class="form-check-input" name="radiOption"  id="radiOption1">
+                <input type="radio" [(ngModel)]="adotante.id_gen" value="1" class="form-check-input" name="radiOption"  id="radiOption1">
                 <label class="form-check-label" for="radiOption1">Masculino</label>
             </div> 
             <div class="campSex form-check">
-                <input type="radio" class="form-check-input" name="radiOption"  id="radiOption2">
+                <input type="radio" [(ngModel)]="adotante.id_gen" value="2" class="form-check-input" name="radiOption"  id="radiOption2">
                 <label class="form-check-label" for="radiOption2">Femenino</label>
             </div> 
 
 
             <div class="btnn">
                 <div class="button-register">
-                    <input type="submit" id="btn-register" value="Cadastrar" />
+                    <button (click)="saveAdotante()" id="btn-register">Cadastrar
+                    </button>
                 </div>
                 
             </div>
