@@ -11,7 +11,12 @@ const routes: Routes = [
   {path:'about',component:AboutComponent},
   {path:'register',component:RegisterComponent},
   {path:'consul', component:ConsulComponent},
-  {path:'login', component:LoginComponent}
+  {path:'login', component:LoginComponent},
+
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin-config/admin-config.module').then(m => m.AdminConfigModule)
+  }
 ];
 
 @NgModule({
