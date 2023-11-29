@@ -8,9 +8,7 @@
 
 }
 
-/* .areaRegister h5{
-    text-align: center;
-} */
+
 .areaRegister{
     max-width:760px;
     width:100%;
@@ -35,8 +33,25 @@
     margin-bottom: 13px;
     width: calc(100% / 2 - 20px);
 }
+.input-hw{
+    margin-bottom: 13px;
+    width: calc(50% / 2 - 20px);
+}
+.input-photo{
+    display: flex;
+    flex-direction: column;
+}
+.input-photo input{
+    padding: 2px;
+    border:1px solid rgb(0, 81, 255);
+    background-color: rgb(0, 81, 255);
+    color: #fff;
+    border-radius: 7px;
 
-.input-box .detail{
+}
+
+
+.input-box .detail,.input-hw .heightWeight,.input-photo .photo{
     margin-bottom:5px;
     display:block;
     font-weight:550;
@@ -44,7 +59,8 @@
     color: rgba(0,0,0,0.5);
 }
 
-.input-box input{
+
+.input-box input,.input-hw input{
     height:40px;
     width:100%;
     outline:none;
@@ -66,7 +82,7 @@
 .button-register button{
     margin-top: 15px;
     justify-content:center;
-    height:100%;
+    height:80%;
     width: 100%;
     border-radius: 5px;
     outline: none;
@@ -76,6 +92,18 @@
     border:none; 
       margin-bottom:5px;
       cursor:pointer;
+}
+#btn-edit{
+    background: rgb(226, 226, 0);
+}
+#btn-edit:hover{
+    background: rgb(185, 185, 0);
+}
+#btn-delete{
+    background: rgb(185, 0, 0);
+}
+#btn-delete:hover{
+    background: rgb(139, 0, 0);
 }
 
 .button-register button:hover{

@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { AdminConfigRoutingModule } from './admin-config-routing.module';
 import { AdminComponent } from './admin/admin.component';
-import { AnimalsComponent } from './animals/animals.component';
+import { AnimalComponent } from './animal/animal.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    AnimalsComponent
+    AnimalComponent
   ],
   imports: [
     CommonModule,
