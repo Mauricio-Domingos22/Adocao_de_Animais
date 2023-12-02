@@ -7,15 +7,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent {
-  admin = {
+  administra = {
     name: null,
     email: null,
-    password: null,
+    password: null
   };
 
   constructor(private http: HttpClient) {}
 
   SaveAdmin() {
-    this.http.post('', this.admin).subscribe((res) => {});
+    this.http.post('http://127.0.0.1:3333/admin', this. administra).subscribe((res) => {
+      console.log("Registado com sucesso")
+    });
   }
 }

@@ -5,23 +5,23 @@
             <div class="users-details ">
                 <div class="input-box">
                     <label class="detail">Nome Completo</label>
-                    <input type="text" [(ngModel)]=" adopter.name" id="input-usar"placeholder="Digite o seu nome" required />
+                    <input type="text" [(ngModel)]=" adopter.name" id="input-usar"placeholder="Digite o seu nome" name="name" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Data de nascimento</label>
-                    <input type="date" [(ngModel)]= "adopter.date_birth"  id="input-usar" required />
+                    <input type="date" [(ngModel)]= "adopter.date_birth"  id="input-usar" name="date_birth" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Telefone</label>
-                    <input type="text" [(ngModel)]=" adopter.telephone"  id="input-usar"placeholder="Digite o seu número" required />
+                    <input type="text" [(ngModel)]=" adopter.telephone"  id="input-usar"placeholder="Digite o seu número" name="telephone" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Morada</label>
-                    <input type="text"[(ngModel)]=" adopter.household"  id="input-usar"placeholder="Digite a sua morada" required />
+                    <input type="text"[(ngModel)]=" adopter.household"  id="input-usar"placeholder="Digite a sua morada" name="household" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Posição</label>
-                    <select name="position" id="position" [(ngModel)]="adopter.id_estad">
+                    <select name="id_estad" id="position" [(ngModel)]="adopter.id_estad">
                       <option value="1">Empregado em uma instituição</option>
                       <option value="2">Empresário</option>
                       <option value="3">Desempregado</option>
@@ -29,15 +29,15 @@
                   </div>
                 <div class="input-box">
                     <label class="detail">Fale um pouco acerca de ti</label>
-                    <textarea name="" [(ngModel)]=" adopter.description" id="" cols="42" rows="2"></textarea>
+                    <textarea name="description" [(ngModel)]=" adopter.description" id="" cols="42" rows="2"></textarea>
                 </div>
                 <div class="input-box">
                     <label class="detail">Email</label>
-                    <input type="email" [(ngModel)]="adopter.email"  id="input-usar"placeholder="Digite o email" required />
+                    <input type="email" [(ngModel)]="adopter.email"  id="input-usar"placeholder="Digite o email" name="email" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Palavra-passe</label>
-                    <input type="password" [(ngModel)]="adopter.password" id="input-pas"placeholder="Digite a palavra-passe" required />
+                    <input type="password" [(ngModel)]="adopter.password" id="input-pas"placeholder="Digite a palavra-passe" name="password" required />
                 </div>
             </div>
 

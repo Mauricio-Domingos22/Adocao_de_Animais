@@ -5,67 +5,97 @@
             <div class="users-details ">
                 <div class="input-box">
                     <label class="detail">Nome do animal</label>
-                    <input type="text"  id="input-usar"placeholder="Digite o seu nome" required />
+                    <input type="text" [(ngModel)]="animal.name" name="name" id="input-usar"placeholder="Digite o seu nome" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Data de nascimento</label>
-                    <input type="date"  id="input-usar" required />
+                    <input type="date" [(ngModel)]="animal.age" name="age" id="input-usar" required />
                 </div>
                 <div class="input-hw">
                     <label class="heightWeight">Altura</label>
-                    <input type="text"   id="input-usar"placeholder="Altura do animal" required />
+                    <input type="text" [(ngModel)]="animal.height" name="height"   id="input-usar"placeholder="Altura do animal" required />
                     <label class="heightWeight">Peso</label>
-                    <input type="text"  id="input-usar"placeholder="Peso do animal" required />
+                    <input type="text"  [(ngModel)]="animal.weight" name="weight" id="input-usar"placeholder="Peso do animal" required />
                 </div>
-                <div class="row input-box">
+                <div class="input-box">
                     <div class="col-sm-6">
                     <label class="detail">Tipo de Animal</label>
-                    <select name="position" id="position">
+                    <select name="position" [(ngModel)]="animal.type_animal" id="position">
                       <option value="1">Cão</option>
                       <option value="2">Gato</option>
                       <option value="3">Porquinho</option>
+                      <option value="4">Macaco</option>
+                      <option value="5">Cobra</option>
+                      <option value="6">Papagaio</option>
                     </select>
                 </div>
                 <div class="col-sm-6">
                     <label class="detail">Raça</label>
-                    <select name="position" id="position">
-                      <option value="1">Pastor Alemão</option>
-                      <option value="2">Gato</option>
-                      <option value="3">Porquinho</option>
+                    <select name="race" [(ngModel)]="animal.race" id="position">
+                      <option value="1">Rafeiro</option>
+                      <option value="2">Pastor Alemão</option>
+                      <option value="3">Doberman</option>
+                      <option value="4">Canixe</option>
+                      <option value="5">American Shorthair</option>
+                      <option value="6">Sphynx</option>
+                      <option value="7">Papagaio verdadeiro</option>
+                      <option value="8">Ecletus</option>
+                      <option value="9">Lophopsittacus</option>
+                      <option value="10">Cascavel</option>
+                      <option value="11">Coral doméstica</option>
+                      <option value="12">Falsa-coral</option>
+                      <option value="13">Sucurcucu</option>
+                      <option value="14">Verde</option>
+                      <option value="15">Milho</option>
+                      <option value="16">Escada</option>
+                      <option value="17">Inglês</option>
+                      <option value="18">Abissínio</option>
+                      <option value="19">Rex</option>
+                      <option value="20">Teddy</option>
                     </select>
                 </div>
                   </div>
                   <div class="input-box">
                     <label class="detail">Cor</label>
-                    <select name="position" id="position">
-                      <option value="1">Branco</option>
-                      <option value="2">Preto</option>
-                      <option value="3">Branco & Preto</option>
+                    <select name="color" [(ngModel)]="animal.color" id="position">
+                       <option value="1">Branco</option> 
+                       <option value="2"> Preto</option> 
+                       <option value="3">Branco & Preto</option>   
+                       <option value="4">  Castanho</option>  
+                       <option value="5">Ruivo</option>    
+                       <option value="6"> Vermelho</option>   
+                       <option value="7">Verde</option>        
+                       <option value="8"> Azul</option>   
+                       <option value="9"> Cizento</option>  
+                       <option value="10"> Castanho e Branco</option>   
+                       <option value="11">Castanho Preto</option>   
+                       <option value="12">Cizento e Preto</option>
+                       <option value="13">Cizento e Branco</option>   
                     </select>
                   </div>
                   <div class="input-photo">
                     <label class="photo">Foto</label>
-                    <input type="file"  id="input-usar" placeholder="adicionar foto" required />
+                    <input type="file" [(ngModel)]="animal.photograph" name="photograph" id="input-usar" placeholder="adicionar foto" required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Descrição do Animal</label>
-                    <textarea name="" cols="42" rows="2"></textarea>
+                    <textarea name="about_animal" [(ngModel)]="animal.about_animal" cols="42" rows="2"></textarea>
                 </div>
             </div>
 
             <div class="campSex form-check">
-                <input type="radio"  value="1" class="form-check-input" name="radiOption" id="radiOption1">
+                <input type="radio" [(ngModel)]="animal.sex" value="1" class="form-check-input" name="radiOption" id="radiOption1">
         <label class="form-check-label" for="radiOption1">Macho</label>
       </div>
       <div class="campSex form-check">
-        <input type="radio" value="2" class="form-check-input" name="radiOption" id="radiOption2">
+        <input type="radio" [(ngModel)]="animal.sex" value="2" class="form-check-input" name="radiOption" id="radiOption2">
         <label class="form-check-label" for="radiOption2">Femea</label>
             </div> 
 
 
             <div class="row btnn">
                 <div class="col-sm-4 button-register">
-                    <button type="submit" id="btn-register">Cadastrar</button>
+                    <button type="submit" (click)="SaveAnimal()" id="btn-register">Cadastrar</button>
                 </div>
                 <div class="col-sm-4 button-register">
                     <button type="submit" id="btn-edit">Editar</button>

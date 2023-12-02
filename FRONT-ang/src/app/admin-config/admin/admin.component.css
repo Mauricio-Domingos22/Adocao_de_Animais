@@ -64,7 +64,7 @@ input .foto{
 .button-start{
     justify-content:center;
 }
-.button-start input{
+#btn-iniciar {
     margin-top: 15px;
     justify-content:center;
     height:100%;
@@ -79,7 +79,7 @@ input .foto{
       cursor:pointer;
 }
 
-.button-start input:hover{
+#btn-iniciar:hover{
     background: rgb(0, 69, 219);
     color: #fff;
     /* border: 3px solid rgb(0, 81, 255); */ 
