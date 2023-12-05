@@ -17,7 +17,8 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
     CommonModule,
     AdminConfigRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminConfigModule { }

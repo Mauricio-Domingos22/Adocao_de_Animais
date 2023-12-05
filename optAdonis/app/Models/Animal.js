@@ -4,6 +4,8 @@
 const Model = use('Model')
 
 class Animal extends Model {
+    
+   
 }
 
 module.exports = Animal

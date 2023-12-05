@@ -29,7 +29,7 @@ class AnimalController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async create({ request }) {
+  async create({ request,response }) {
     const dataAnimal = request.only([
       "name",
       "sex",
@@ -39,10 +39,28 @@ class AnimalController {
       "race",
       "type_animal",
       "color",
-      "about_animal",
-      "Photograph",
+      "about_animal"
     ]);
+    const Route = use('Route');
+    const Helpers = use('Helpers')
 
+Route.post('upload', async ({ request }) => {
+  const profilePic = request.file('photograph', {
+    types: ['image'],
+    size: '2mb'
+  })
+
+  await profilePic.move(Helpers.tmpPath('uploads'), {
+    name: 'custom-name.jpg',
+    overwrite: true
+  })
+
+  if (!profilePic.moved()) {
+    return profilePic.error()
+  }
+  return 'File moved'
+})
+  
     const animal = await Animal.create(dataAnimal);
     return animal;
   }
