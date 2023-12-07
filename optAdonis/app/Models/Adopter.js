@@ -37,6 +37,9 @@ class Adopter extends Model {
       tokens () {
         return this.hasMany('App/Models/TokKen')
       }
+      adopterAdoption(){
+        return this.hasMany('App/Models/Adoption')
+      }
 }
 
 module.exports = Adopter

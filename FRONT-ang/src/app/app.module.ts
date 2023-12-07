@@ -13,6 +13,8 @@ import { RegisterComponent } from './components/pages/register/register.componen
 import { LoginComponent } from './components/pages/login/login.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { ViewAnimalsComponent } from './components/pages/view-animals/view-animals.component';
+import { DetailsAnimalComponent } from './components/pages/details-animal/details-animal.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
     AboutComponent,
     ConsulComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    ViewAnimalsComponent,
+    DetailsAnimalComponent
   ],
   imports: [
     BrowserModule,

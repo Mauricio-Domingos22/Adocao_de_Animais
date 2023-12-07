@@ -5,7 +5,9 @@ const Model = use('Model')
 
 class Animal extends Model {
     
-   
+   animalAdoptions(){
+    return this.belongsTo('App/Models/Adoption')
+   } 
 }
 
 module.exports = Animal

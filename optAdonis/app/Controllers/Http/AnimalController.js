@@ -18,7 +18,10 @@ class AnimalController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index({ request, response, view }) {}
+  async index() {
+    const animal = await Animal.all();
+    return animal
+  }
 
   /**
    * Render a form to be used for creating a new animal.
@@ -73,29 +76,13 @@ Route.post('upload', async ({ request }) => {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async store({ request, response }) {}
+ 
+  async show({ params}) {
+    const animal = await Animal.findOrFail(params.id)
+    return animal
+  }
 
-  /**
-   * Display a single animal.
-   * GET animals/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async show({ params, request, response, view }) {}
 
-  /**
-   * Render a form to update an existing animal.
-   * GET animals/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit({ params, request, response, view }) {}
 
   /**
    * Update animal details.
@@ -115,7 +102,15 @@ Route.post('upload', async ({ request }) => {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy({ params, request, response }) {}
+  async destroy({ params, request, response }) {
+    const animal = await Animal.findOrFail(params.id)
+    await animal.delete()
+
+  // if(animal.user_id != auth.user_id){
+  //   return response.status(401)
+  // }
+   
+  }
 }
 
 module.exports = AnimalController;

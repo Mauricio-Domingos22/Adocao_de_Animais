@@ -5,6 +5,7 @@ import { AboutComponent } from './components/pages/about/about.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { ConsulComponent } from './components/pages/consul/consul.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { DetailsAnimalComponent } from './components/pages/details-animal/details-animal.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'consul', component:ConsulComponent},
   {path:'login', component:LoginComponent},
+  {path: 'details',component:DetailsAnimalComponent},
 
   {
     path: 'admin',

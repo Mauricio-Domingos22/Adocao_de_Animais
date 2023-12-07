@@ -19,21 +19,24 @@ class AdopterController {
    * @param {View} ctx.view
    */
   async register({request}) {
-    const dataUser = request.only(["name",
+    const dataUser = request.only([
+      "name",
     "date_birth",
     "household",
     "telephone",
     "id_gen",
     "id_estad",
-    "description","email","password"]);
+    "description",
+    "email",
+    "password"]);
     const user = await User.create(dataUser);
     return user;
   }
 
-  async authenticate({request, auth}) {
-    const { email, password } = request.all();
+  async authenticate({request, auth,response}) {
+    const { email, password } = request.only(['email','password']);
     const token = await auth.attempt(email, password);
-    return token;
+    return response.ok(token);
   }
   async store ({ request, response }) {
   }

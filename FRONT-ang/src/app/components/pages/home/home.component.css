@@ -6,3 +6,29 @@
     color: black !important;
     font-size: 16px;
 }
+.animalsImage img{
+    width: 100%;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+.animalsImage img:hover{
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5);
+
+}
+.animalsImage button{
+    width: 100%;
+    border-color:rgb(0, 81, 255);
+    background: #fff;
+    color:rgb(0, 81, 255);
+    font-weight: 600;
+    padding: 7px;
+    margin-bottom: 4px;
+    top: 0;
+}
+.animalsImage button:hover{
+    border: none;
+    background: rgb(0, 81, 255);
+    color: #fff;
+    transition: ease-in 0.5s;
+}
