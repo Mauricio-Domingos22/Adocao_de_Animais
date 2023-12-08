@@ -9,7 +9,6 @@ const Hash = use('Hash')
 
 
 class Adopter extends Model {
-
     static boot () {
         super.boot()
     
@@ -17,11 +16,11 @@ class Adopter extends Model {
          * A hook to hash the user password before saving
          * it to the database.
          */
-        this.addHook('beforeSave', async (userInstance) => {
-          if (userInstance.dirty.password) {
-            userInstance.password = await Hash.make(userInstance.password)
+        this.addHook('beforeSave', async (adopterInstance) => {
+          if (adopterInstance.dirty.password) {
+            adopterInstance.password = await Hash.make(adopterInstance.password);
           }
-        })
+        });
       }
     
       /**
@@ -30,12 +29,12 @@ class Adopter extends Model {
        * `rememberToken` will be saved inside the
        * tokens table.
        *
-       * @method tokkens
+       * @method tokens
        *
        * @return {Object}
        */
       tokens () {
-        return this.hasMany('App/Models/TokKen')
+        return this.hasMany('App/Models/Tokken')
       }
       adopterAdoption(){
         return this.hasMany('App/Models/Adoption')

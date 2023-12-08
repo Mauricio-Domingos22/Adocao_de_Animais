@@ -7,6 +7,7 @@
 /**
  * Resourceful controller for interacting with adopters
  */
+const Hash = use('Hash')
 const User = use('App/Models/Adopter')
 class AdopterController {
   /**
@@ -33,11 +34,16 @@ class AdopterController {
     return user;
   }
 
-  async authenticate({request, auth,response}) {
-    const { email, password } = request.only(['email','password']);
-    const token = await auth.attempt(email, password);
-    return response.ok(token);
-  }
+  async authenticate({request, auth}) {
+    const { email, password } = request.all();
+    const adopter = await User.findBy('email', email.toLowerCase());
+    
+    if (adopter && (await Hash.verify(password, adopter.password))) {
+      // return 'Autenticação bem-sucedida'
+    } else {
+      // return 'Usuário não encontrado ou senha incorreta'
+    }
+     }
   async store ({ request, response }) {
   }
 

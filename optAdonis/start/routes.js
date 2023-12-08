@@ -27,7 +27,7 @@ const Route = use('Route')
 
 Route.post('/gender', 'GenderController.create')
 Route.post('/status', 'StatusController.create')
-Route.post('/register', 'AdopterController.register').validator('StoreUser')
+Route.post('/register', 'AdopterController.register')/*.validator('StoreUser')*/
 Route.post('/authenticate', 'AdopterController.authenticate')
 Route.post('/type', 'TypeAnimalController.create')
 Route.post('/race', 'RaceController.create')
@@ -36,3 +36,4 @@ Route.post('/sex', 'SexController.create')
 Route.post('/animal', "AnimalController.create")
 Route.group(()=>{Route.resource('/animals', "AnimalController").except("store")})
 Route.post('/admin', 'AdminController.registerAdmin')
+Route.post('/adminautenticate', 'AdminController.authenticate')

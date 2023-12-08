@@ -1,22 +1,22 @@
 <section class="login">
     <div class="container areaLg">
         <h5>Aréa Reservada</h5>
-        <form action="#" method="post" [formGroup]="loginForm" (ngSubmit)="login()">
+        <form action="#" method="post" (ngSubmit)="login()">
             <div class="users-details ">
                 <div class="input-box">
                     <label class="detail">Email</label>
                     <input type="email"  id="input-usar"
-                    placeholder="Digite o email" required formControlName="email" [class. is-invalid]="emailValidate"/>
+                    placeholder="Digite o email" required [(ngModel)]="user.email" name="email"/>
                 </div>
                 <div class="input-box">
                     <label class="detail">Palavra-passe</label>
                     <input type="password" id="input-pas"
-                    placeholder="Digite a palavra-passe" required  formControlName="password" [class. is-invalid]="passwordValidate"/>
+                    placeholder="Digite a palavra-passe" required [(ngModel)]="user.password" name="password"/>
                 </div>
             </div>
 
             <div class="campSaveRegister form-check">
-                <input type="checkbox" class="form-check-input" name="check_ligado" id="check_ligado"><label class="form-check-label" for="check_ligado">Relembar passe</label>
+                <input type="checkbox" class="form-check-input" name="check_ligado" id="check_ligado"><label class="form-check-label" for="check_ligado">Não sou robô</label>
                <a class="registro" [routerLink]="['/register']"> Regista-se aqui!</a>
             </div> 
 

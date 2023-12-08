@@ -20,7 +20,7 @@ export class RegisterComponent {
     password: null,
   };
 
-  constructor(private http: HttpClient, private router:Router) {}
+  constructor(private http: HttpClient,private router:Router) {}
 
   saveAdopter() {
     this.http
