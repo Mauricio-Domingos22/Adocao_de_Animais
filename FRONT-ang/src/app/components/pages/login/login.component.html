@@ -1,15 +1,17 @@
 <section class="login">
     <div class="container areaLg">
         <h5>Aréa Reservada</h5>
-        <form action="#" method="post">
+        <form action="#" method="post" [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="users-details ">
                 <div class="input-box">
                     <label class="detail">Email</label>
-                    <input type="email"  id="input-usar"placeholder="Digite o email" required />
+                    <input type="email"  id="input-usar"
+                    placeholder="Digite o email" required formControlName="email" [class. is-invalid]="emailValidate"/>
                 </div>
                 <div class="input-box">
                     <label class="detail">Palavra-passe</label>
-                    <input type="password" id="input-pas"placeholder="Digite a palavra-passe" required />
+                    <input type="password" id="input-pas"
+                    placeholder="Digite a palavra-passe" required  formControlName="password" [class. is-invalid]="passwordValidate"/>
                 </div>
             </div>
 

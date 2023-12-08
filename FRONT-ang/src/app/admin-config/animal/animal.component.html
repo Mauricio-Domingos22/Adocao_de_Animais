@@ -1,7 +1,7 @@
 <section class="register">
     <div class="container areaRegister">
         <h5>Animal</h5>
-        <form method="POST" action="upload" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data"  (ngSubmit)=" inpuForm(orderForm)">
             <div class="users-details ">
                 <div class="input-box">
                     <label class="detail">Nome do animal</label>
@@ -95,14 +95,14 @@
 
             <div class="row btnn">
                 <div class="col-sm-4 button-register">
-                    <button type="submit" (click)="SaveAnimal()" id="btn-register">Cadastrar</button>
+                    <button type="submit" (ngSubmit)=" inpuForm(orderForm)" id="btn-register">Cadastrar</button>
                 </div>
-                <div class="col-sm-4 button-register">
+                <!-- <div class="col-sm-4 button-register">
                     <button type="submit" id="btn-edit">Editar</button>
                 </div>
                 <div class="col-sm-4 button-register">
                     <button type="submit" id="btn-delete">Deletar</button>
-                </div>
+                </div> -->
                 
             </div>
             

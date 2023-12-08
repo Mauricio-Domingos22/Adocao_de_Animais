@@ -33,5 +33,6 @@ Route.post('/type', 'TypeAnimalController.create')
 Route.post('/race', 'RaceController.create')
 Route.post('/color', 'ColorController.create')
 Route.post('/sex', 'SexController.create')
-Route.group(()=>{Route.resource('/animal', "AnimalController").except("store")})/*.middleware('auth')*/
+Route.post('/animal', "AnimalController.create")
+Route.group(()=>{Route.resource('/animals', "AnimalController").except("store")})
 Route.post('/admin', 'AdminController.registerAdmin')

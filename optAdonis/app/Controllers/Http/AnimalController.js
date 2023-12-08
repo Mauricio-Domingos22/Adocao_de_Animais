@@ -8,6 +8,7 @@
  * Resourceful controller for interacting with animals
  */
 const Animal = use("App/Models/Animal");
+const Helpers= use('Helpers')
 class AnimalController {
   /**
    * Show a list of all animals.
@@ -44,25 +45,11 @@ class AnimalController {
       "color",
       "about_animal"
     ]);
-    const Route = use('Route');
-    const Helpers = use('Helpers')
-
-Route.post('upload', async ({ request }) => {
-  const profilePic = request.file('photograph', {
-    types: ['image'],
-    size: '2mb'
-  })
-
-  await profilePic.move(Helpers.tmpPath('uploads'), {
-    name: 'custom-name.jpg',
-    overwrite: true
-  })
-
-  if (!profilePic.moved()) {
-    return profilePic.error()
-  }
-  return 'File moved'
-})
+    dataAnimal.photograph = new Date().getTime()+'.'+animalPicture.subtype
+    const animalPicture =request.file('photograph')
+    await animalPicture.move(Helpers.publicPath('upload'),{
+      name: dataAnimal.photograph 
+    })
   
     const animal = await Animal.create(dataAnimal);
     return animal;
@@ -92,7 +79,7 @@ Route.post('upload', async ({ request }) => {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update({ params, request, response }) {}
+
 
   /**
    * Delete a animal with id.

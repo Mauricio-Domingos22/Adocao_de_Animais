@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-animal',
@@ -7,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./animal.component.css']
 })
 export class AnimalComponent {
+  orderForm: any;
+  
   animals = {
     name: null,
     sex: null,
@@ -23,7 +26,8 @@ export class AnimalComponent {
   
   inpuForm(orderForm:any){
 var formData:any = new FormData();
-formData.append("name",orderForm.get('name')?.value);
+formData = this.animals;
+formData.append("name",orderForm.get('name').value);
 formData.append("sex",orderForm.get('sex')?.value);
 formData.append("age",orderForm.get('age')?.value);
 formData.append("height",orderForm.get('height')?.value);
@@ -33,16 +37,12 @@ formData.append("color",orderForm.get('color')?.value);
 formData.append("about_animal",orderForm.get('about_animal')?.value);
 formData.append("photograph",orderForm.get('photograph')?.value);
 
-
+this.http.post('http://127.0.0.1:3333/animal',  formData).subscribe((res) => {
+  console.log('registado com sucesso')
+      
+});
   }
 
   constructor(private http: HttpClient) {}
 
-
-  SaveAnimal(): void {
-    
-    this.http.post('http://127.0.0.1:3333/animal',  FormData).subscribe((res) => {
-      
-    });
-  }
 }

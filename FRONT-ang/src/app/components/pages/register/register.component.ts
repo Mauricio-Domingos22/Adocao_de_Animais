@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -19,13 +20,14 @@ export class RegisterComponent {
     password: null,
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router:Router) {}
 
   saveAdopter() {
     this.http
       .post('http://127.0.0.1:3333/register', this.adopter)
       .subscribe((res) => {
-        console.log('Castrado com sucesso');
+        alert('Castrado com sucesso');
+        this.router.navigate(['/login'])
       });
   }
 }

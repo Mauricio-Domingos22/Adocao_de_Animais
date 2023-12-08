@@ -32,6 +32,7 @@ const aceProviders = [
   '@adonisjs/lucid/providers/MigrationsProvider'
 ]
 
+
 /*
 |--------------------------------------------------------------------------
 | Aliases
