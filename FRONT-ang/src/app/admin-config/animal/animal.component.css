@@ -94,18 +94,17 @@
       cursor:pointer;
 }
 #btn-edit{
-    background: rgb(226, 226, 0);
+    background: rgb(0, 81, 255);
 }
 #btn-edit:hover{
-    background: rgb(185, 185, 0);
-}
-#btn-delete{
-    background: rgb(185, 0, 0);
-}
-#btn-delete:hover{
-    background: rgb(139, 0, 0);
+    background: rgb(0, 69, 219);
 }
 
+button a{
+    text-decoration: none;
+    color:#fff;
+    font-weight: 400;
+}
 .button-register button:hover{
     background: rgb(0, 69, 219);
     color: #fff;

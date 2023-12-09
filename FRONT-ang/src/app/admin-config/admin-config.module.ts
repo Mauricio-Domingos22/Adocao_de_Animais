@@ -6,12 +6,14 @@ import { AdminComponent } from './admin/admin.component';
 import { AnimalComponent } from './animal/animal.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { ListAnimalsComponent } from './list-animals/list-animals.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    AnimalComponent
+    AnimalComponent,
+    ListAnimalsComponent
   ],
   imports: [
     CommonModule,

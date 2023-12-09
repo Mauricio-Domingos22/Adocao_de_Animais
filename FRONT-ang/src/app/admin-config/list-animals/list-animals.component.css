@@ -1,0 +1,29 @@
+.viewAll{
+margin-top: 15px;
+margin-bottom: 40px;
+}
+
+
+.btnExecute{
+justify-content: space-between;
+}
+
+#btn-edit{
+    border: none;
+    color: #fff;
+    width: 45%;
+    margin-right: 15px;
+    background: rgb(0, 81, 255);
+}
+#btn-edit:hover{
+    background: rgb(0, 69, 219);
+}
+#btn-delete{
+    border: none;
+    color: #fff;
+    width: 45%;
+    background: rgb(185, 0, 0);
+}
+#btn-delete:hover{
+    background: rgb(139, 0, 0);
+}
