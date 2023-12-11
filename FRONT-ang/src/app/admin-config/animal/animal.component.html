@@ -75,7 +75,7 @@
                   </div>
                   <div class="input-photo">
                     <label class="photo">Foto</label>
-                    <input type="file"  name="photograph" [(ngModel)]="animals.photograph" id="input-usar"  required />
+                    <input type="file"  name="photograph" (change)="uploadFile($event)" id="input-usar"  required />
                 </div>
                 <div class="input-box">
                     <label class="detail">Descrição do Animal</label>

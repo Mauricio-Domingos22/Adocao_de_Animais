@@ -8,7 +8,18 @@
  * Resourceful controller for interacting with animals
  */
 const Animal = use("App/Models/Animal");
-const Helpers= use('Helpers')
+const Helpers = use("Helpers");
+const payoad = [
+  "name",
+  "sex",
+  "age",
+  "height",
+  "weight",
+  "race",
+  "type_animal",
+  "color",
+  "about_animal",
+];
 class AnimalController {
   /**
    * Show a list of all animals.
@@ -21,7 +32,7 @@ class AnimalController {
    */
   async index() {
     const animal = await Animal.all();
-    return animal
+    return animal;
   }
 
   /**
@@ -33,24 +44,15 @@ class AnimalController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async create({ request,response }) {
-    const dataAnimal = request.only([
-      "name",
-      "sex",
-      "age",
-      "height",
-      "weight",
-      "race",
-      "type_animal",
-      "color",
-      "about_animal"
-    ]);
-    dataAnimal.photograph = new Date().getTime()+'.'+animalPicture.subtype
-    const animalPicture =request.file('photograph')
-    await animalPicture.move(Helpers.publicPath('upload'),{
-      name: dataAnimal.photograph 
-    })
-  
+  async create({ request, response }) {
+    const dataAnimal = request.all();
+    const animalPicture = request.file("photograph");
+
+    dataAnimal.photograph = new Date().getTime() + "." + animalPicture.subtype;
+    await animalPicture.move(Helpers.publicPath("upload"), {
+      name: dataAnimal.photograph,
+    });
+
     const animal = await Animal.create(dataAnimal);
     return animal;
   }
@@ -63,13 +65,11 @@ class AnimalController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
- 
-  async show({ params}) {
-    const animal = await Animal.findOrFail(params.id)
-    return animal
+
+  async show({ params }) {
+    const animal = await Animal.findOrFail(params.id);
+    return animal;
   }
-
-
 
   /**
    * Update animal details.
@@ -80,7 +80,6 @@ class AnimalController {
    * @param {Response} ctx.response
    */
 
-
   /**
    * Delete a animal with id.
    * DELETE animals/:id
@@ -90,13 +89,12 @@ class AnimalController {
    * @param {Response} ctx.response
    */
   async destroy({ params, request, response }) {
-    const animal = await Animal.findOrFail(params.id)
-    await animal.delete()
+    const animal = await Animal.findOrFail(params.id);
+    await animal.delete();
 
-  // if(animal.user_id != auth.user_id){
-  //   return response.status(401)
-  // }
-   
+    // if(animal.user_id != auth.user_id){
+    //   return response.status(401)
+    // }
   }
 }
 

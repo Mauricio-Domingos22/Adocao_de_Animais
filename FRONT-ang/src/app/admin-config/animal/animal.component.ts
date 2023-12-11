@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-animal',
   templateUrl: './animal.component.html',
-  styleUrls: ['./animal.component.css']
+  styleUrls: ['./animal.component.css'],
 })
 export class AnimalComponent {
   orderForm: any;
-  
+
   animals = {
     name: null,
     sex: null,
@@ -20,29 +20,43 @@ export class AnimalComponent {
     type_animal: null,
     color: null,
     about_animal: null,
-    photograph:null
-
+    photograph: null,
   };
-  
-  inpuForm(orderForm:any){
-var formData:any = new FormData();
-formData = this.animals;
-formData.append("name",orderForm.get('name').value);
-formData.append("sex",orderForm.get('sex')?.value);
-formData.append("age",orderForm.get('age')?.value);
-formData.append("height",orderForm.get('height')?.value);
-formData.append("weight",orderForm.get('weight')?.value);
-formData.append("type_animal",orderForm.get('type_animal')?.value);
-formData.append("color",orderForm.get('color')?.value);
-formData.append("about_animal",orderForm.get('about_animal')?.value);
-formData.append("photograph",orderForm.get('photograph')?.value);
+  constructor(private http: HttpClient, private sanitizer: DomSanitizer) {}
+  inpuForm(orderForm: any) {
+    var formData: any = new FormData();
+    formData.append('name', this.animals.name);
+    formData.append('sex', this.animals.sex);
+    formData.append('age', this.animals.age);
+    formData.append('height', this.animals.height);
+    formData.append('weight', this.animals.weight);
+    formData.append('race', this.animals.race);
+    formData.append('type_animal', this.animals.type_animal);
+    formData.append('color', this.animals.color);
+    formData.append('about_animal', this.animals.about_animal);
+    formData.append('photograph', this.animals.photograph);
 
-this.http.post('http://127.0.0.1:3333/animal',  formData).subscribe((res) => {
-  console.log('registado com sucesso')
-      
-});
+    this.http
+      .post('http://127.0.0.1:3333/animal', formData)
+      .subscribe((res) => {
+        console.log('registado com sucesso');
+      });
   }
 
-  constructor(private http: HttpClient) {}
+  private images: any = [];
+  uploadFile(event: any) {
+    this.images = [];
+    const file = event.target.files[0];
 
+    var reader = new FileReader();
+
+    reader.onload = (event: any) => {
+      this.images.push(
+        this.sanitizer.bypassSecurityTrustResourceUrl(event.target.result)
+      );
+      this.animals.photograph = file;
+    };
+
+    reader.readAsDataURL(event.target.files[0]);
+  }
 }
