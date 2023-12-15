@@ -2,13 +2,13 @@
     <div class="card-header">Lista dos Animais</div>
     <div class="row">
         <div class="col-md-12 table-responsive">
-            <table class="table">
-                <thead>
+            <table class="table table-bordered">
+                <thead class="table-primary">
                   <tr>
-                    <th scope="col">#</th>
+                    
                     <th scope="col">Nome</th>
                     <th scope="col">Sexo</th>
-                    <th scope="col">Data-Nasc</th>
+                    <th scope="col">Data nasc</th>
                     <th scope="col">Altura</th>
                     <th scope="col">Peso</th>
                     <th scope="col">Raça</th>
@@ -16,11 +16,11 @@
                     <th scope="col">Cor</th>
                     <th scope="col">Sobre</th>
                     <th scope="col">Fotografia</th>
-                    <th scope="col">Ações</th>
+                    <th scope="col">---</th>
+                    <th scope="col">---</th>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let animal of animals">
-                    <th scope="row">1</th>
+                  <tr *ngFor="let animal of animals | async">
                     <td>{{ animal.name }}</td>
                     <td>{{ animal.sex }}</td>
                     <td>{{ animal.age }}</td>
@@ -32,9 +32,12 @@
                     <td>{{ animal.about_animal }}</td>
                     <td>{{ animal.photograph }}</td>
                     <td>
-                    <button class="btn btn-primary btn-sm">edit</button>
+                    <button class="btn btn-primary btn-sm" (click)="onEdit(animal)">edit</button>
                     </td>
-                    
+                    <td>
+                    <button class="btn btn-danger btn-sm">deletar</button>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
         </div>
