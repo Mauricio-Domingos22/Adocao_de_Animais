@@ -88,13 +88,17 @@ class AnimalController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy({ params, request, response }) {
+  async destroy({ params,response }) {
     const animal = await Animal.findOrFail(params.id);
     await animal.delete();
 
     // if(animal.user_id != auth.user_id){
     //   return response.status(401)
     // }
+  }
+  async edit({params}){
+    const animal = await Animal.findOrFail(params.id)
+    return animal.update();
   }
 }
 

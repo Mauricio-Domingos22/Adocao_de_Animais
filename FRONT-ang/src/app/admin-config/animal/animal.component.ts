@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Animal } from '../models/animal';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-animal',
@@ -59,4 +61,6 @@ export class AnimalComponent {
 
     reader.readAsDataURL(event.target.files[0]);
   }
+
+  
 }
