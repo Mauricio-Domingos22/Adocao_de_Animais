@@ -19,30 +19,41 @@ class AdopterController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async register({request}) {
-    const dataUser = request.only([
-      "name",
-    "date_birth",
-    "household",
-    "telephone",
-    "id_gen",
-    "id_estad",
-    "description",
-    "email",
-    "password"]);
-    const user = await User.create(dataUser);
-    return user;
+  async register({request,response}) {
+    try{
+      const dataUser = request.only([
+        "name",
+      "date_birth",
+      "household",
+      "telephone",
+      "id_gen",
+      "id_estad",
+      "description",
+      "email",
+      "password"]);
+      const user = await User.create(dataUser);
+      return user;
+    }catch(error){
+      console.log(error)
+      return response.status(500).send({error:'Erro duarate o Registo'})
+    }
+    
   }
 
-  async authenticate({request, auth}) {
-    const { email, password } = request.all();
-    const adopter = await User.findBy('email', email.toLowerCase());
-    
-    if (adopter && (await Hash.verify(password, adopter.password))) {
-      // return 'Autenticação bem-sucedida'
-    } else {
-      // return 'Usuário não encontrado ou senha incorreta'
+  async authenticate({request, auth,response}) {
+    try{
+      const { email, password } = request.all();
+      const adopter = await User.findBy('email', email.toLowerCase());
+      
+      if (adopter && (await Hash.verify(password, adopter.password))) {
+         return 'Autenticação bem-sucedida'
+      }
+    }catch(error){
+      console.log(error)
+      return response.status(401).send({error:'Credenciais Inválidas.'})
+
     }
+  
      }
   async store ({ request, response }) {
   }
