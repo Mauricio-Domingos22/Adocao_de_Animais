@@ -30,9 +30,16 @@ class AnimalController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async index() {
-    const animal = await Animal.all();
-    return animal;
+  async index({ response }) {
+    try {
+      const animal = await Animal.all();
+      return animal;
+    } catch (error) {
+      console.error(error);
+      return response
+        .status(500)
+        .send({ error: "Ocorreu um erro ao buscar os animais" });
+    }
   }
 
   /**
@@ -45,16 +52,22 @@ class AnimalController {
    * @param {View} ctx.view
    */
   async create({ request, response }) {
-    const dataAnimal = request.all();
-    const animalPicture = request.file("photograph");
+    try {
+      const dataAnimal = request.all();
+      const animalPicture = request.file("photograph");
 
-    dataAnimal.photograph = new Date().getTime() + "." + animalPicture.subtype;
-    await animalPicture.move(Helpers.publicPath("upload"), {
-      name: dataAnimal.photograph,
-    });
+      dataAnimal.photograph =
+        new Date().getTime() + "." + animalPicture.subtype;
+      await animalPicture.move(Helpers.publicPath("upload"), {
+        name: dataAnimal.photograph,
+      });
 
-    const animal = await Animal.create(dataAnimal);
-    return animal;
+      const animal = await Animal.create(dataAnimal);
+      return animal;
+    } catch (error) {
+      console.error(error);
+      return response.status(500).send({ error: "Erro duarate o Registo" });
+    }
   }
 
   /**
@@ -66,9 +79,20 @@ class AnimalController {
    * @param {Response} ctx.response
    */
 
-  async show({ params }) {
-    const animal = await Animal.findOrFail(params.id);
-    return animal;
+  async show({ params, response }) {
+    try {
+      const animal = await Animal.findOrFail(params.id);
+      return animal;
+    } catch (error) {
+      console.error(error);
+
+      if (error.name === "ModelNotFoundException") {
+        return response.status(404).send({ error: "Animal não encontrado" });
+      }
+      return response
+        .status(500)
+        .send({ error: "Ocorreu um erro ao buscar o animal" });
+    }
   }
 
   /**
@@ -88,17 +112,50 @@ class AnimalController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy({ params,response }) {
-    const animal = await Animal.findOrFail(params.id);
-    await animal.delete();
+  async destroy({ params, response }) {
+    try{
+      const animal = await Animal.findOrFail(params.id);
+      await animal.delete();
+   return response.status(204).send()
+    }catch(error){
+      console.error(error)
+     if(error.name === "ModelNotFoundException"){
+      return response.status(500).send({error:'Ocorreu um erro ao excluir o animal'})
+     }
 
-    // if(animal.user_id != auth.user_id){
-    //   return response.status(401)
-    // }
+    }
+ 
   }
-  async edit({params}){
-    const animal = await Animal.findOrFail(params.id)
-    return animal.update();
+
+  //Editar Aimal
+  async update({ params,request,response }) {
+    try{
+      const animal = await Animal.findOrFail(params.id)
+      const data = request.only(['name',
+      'sex',
+      'age',
+      'height',
+      'weight',
+      'race',
+      'type_animal',
+      'color',
+      'about_animal',
+     ' photograph'
+    ])
+    animal.merge(data)
+    await animal.save()
+
+return response.status(200).send(animal)
+
+    }catch(error){
+   console.error(error)
+    if(error.name === 'ModelNotFoundException'){
+      return response.status(404).send({error:'Animal não encontrado'})
+    }
+    return response.status(500).send({ error: 'Ocorreu um erro ao editar o animal.' });
+    }
+    
+
   }
 }
 

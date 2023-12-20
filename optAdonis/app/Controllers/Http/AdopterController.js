@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
@@ -7,8 +7,8 @@
 /**
  * Resourceful controller for interacting with adopters
  */
-const Hash = use('Hash')
-const User = use('App/Models/Adopter')
+const Hash = use("Hash");
+const User = use("App/Models/Adopter");
 class AdopterController {
   /**
    * Show a list of all adopters.
@@ -19,44 +19,41 @@ class AdopterController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async register({request,response}) {
-    try{
+  async register({ request, response }) {
+    try {
       const dataUser = request.only([
         "name",
-      "date_birth",
-      "household",
-      "telephone",
-      "id_gen",
-      "id_estad",
-      "description",
-      "email",
-      "password"]);
+        "date_birth",
+        "household",
+        "telephone",
+        "id_gen",
+        "id_estad",
+        "description",
+        "email",
+        "password",
+      ]);
       const user = await User.create(dataUser);
       return user;
-    }catch(error){
-      console.log(error)
-      return response.status(500).send({error:'Erro duarate o Registo'})
+    } catch (error) {
+      console.error(error);
+      return response.status(500).send({ error: "Erro duarate o Registo" });
     }
-    
   }
 
-  async authenticate({request, auth,response}) {
-    try{
+  async authenticate({ request, auth, response }) {
+    try {
       const { email, password } = request.all();
-      const adopter = await User.findBy('email', email.toLowerCase());
-      
-      if (adopter && (await Hash.verify(password, adopter.password))) {
-         return 'Autenticação bem-sucedida'
-      }
-    }catch(error){
-      console.log(error)
-      return response.status(401).send({error:'Credenciais Inválidas.'})
+      const adopter = await User.findBy("email", email.toLowerCase());
 
+      if (adopter && (await Hash.verify(password, adopter.password))) {
+        return "Autenticação bem-sucedida";
+      }
+    } catch (error) {
+      console.error(error);
+      return response.status(401).send({ error: "Credenciais Inválidas." });
     }
-  
-     }
-  async store ({ request, response }) {
   }
+  async store({ request, response }) {}
 
   /**
    * Display a single adopter.
@@ -67,8 +64,7 @@ class AdopterController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async show ({ params, request, response, view }) {
-  }
+  async show({ params, request, response, view }) {}
 
   /**
    * Render a form to update an existing adopter.
@@ -79,8 +75,7 @@ class AdopterController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-  async edit ({ params, request, response, view }) {
-  }
+  async edit({ params, request, response, view }) {}
 
   /**
    * Update adopter details.
@@ -90,8 +85,7 @@ class AdopterController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async update ({ params, request, response }) {
-  }
+  async update({ params, request, response }) {}
 
   /**
    * Delete a adopter with id.
@@ -101,8 +95,7 @@ class AdopterController {
    * @param {Request} ctx.request
    * @param {Response} ctx.response
    */
-  async destroy ({ params, request, response }) {
-  }
+  async destroy({ params, request, response }) {}
 }
 
-module.exports = AdopterController
+module.exports = AdopterController;
